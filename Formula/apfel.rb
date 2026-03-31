@@ -7,7 +7,6 @@ class Apfel < Formula
 
   def install
     odie "apfel requires Apple Silicon." unless Hardware::CPU.arm?
-    odie "apfel requires macOS 26.4 or newer." if MacOS.version < Version.new("26.4")
 
     bin.install "apfel"
   end
