@@ -5,9 +5,10 @@ class Apfel < Formula
   sha256 "02a1fcab80c9dc91145e13c58387f17aa643a7ebe80049ab7cc15079e1387682"
   license "MIT"
 
-  def install
-    odie "apfel requires Apple Silicon." unless Hardware::CPU.arm?
+  depends_on arch: :arm64
+  depends_on macos: :tahoe
 
+  def install
     bin.install "apfel"
   end
 
