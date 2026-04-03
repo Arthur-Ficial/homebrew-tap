@@ -1,8 +1,8 @@
 class Apfel < Formula
   desc "On-device Apple FoundationModels CLI and OpenAI-compatible server"
   homepage "https://github.com/Arthur-Ficial/apfel"
-  url "https://github.com/Arthur-Ficial/apfel/releases/download/v0.6.13/apfel-0.6.13-arm64-macos.tar.gz"
-  sha256 "1a927fe382f11004704dc162e1ab16c4c36403d0a281b9cb3a5a5df2148e3d26"
+  url "https://github.com/Arthur-Ficial/apfel/releases/download/v0.6.23/apfel-0.6.23-arm64-macos.tar.gz"
+  sha256 "f33e8a3d2d0999bc5d5efa480bc28e113d3a7aed647d0f6945a921a12abc2a9a"
   license "MIT"
 
   def install
@@ -21,6 +21,6 @@ class Apfel < Formula
   end
 
   test do
-    assert_match "apfel v0.6.13", shell_output("#{bin}/apfel --version")
+    assert_match "apfel v0.6.23", shell_output("#{bin}/apfel --version")
   end
 end
