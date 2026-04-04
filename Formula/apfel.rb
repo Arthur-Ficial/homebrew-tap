@@ -13,10 +13,17 @@ class Apfel < Formula
 
   def caveats
     <<~EOS
-      apfel runs entirely on-device and requires Apple Intelligence to be enabled.
+      apfel runs entirely on-device. Requirements:
+        - macOS 26 (Tahoe) or newer
+        - Apple Silicon (M1/M2/M3/M4)
+        - Apple Intelligence enabled:
+            System Settings > Apple Intelligence & Siri > toggle ON
 
       Check model availability with:
         apfel --model-info
+
+      If you see "model not ready", the on-device model may still be
+      downloading. Wait a few minutes and try again.
     EOS
   end
 
