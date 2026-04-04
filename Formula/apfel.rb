@@ -6,7 +6,7 @@ class Apfel < Formula
   license "MIT"
 
   def install
-    odie "apfel requires Apple Silicon." unless Hardware::CPU.arm?
+    odie "apfel requires ARM Homebrew on Apple Silicon. If you're on an M-series Mac with Homebrew at /usr/local, reinstall Homebrew at /opt/homebrew." unless Hardware::CPU.arm?
 
     bin.install "apfel"
   end
