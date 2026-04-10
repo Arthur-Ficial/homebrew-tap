@@ -1,9 +1,12 @@
 class Apfel < Formula
   desc "On-device Apple FoundationModels CLI and OpenAI-compatible server"
   homepage "https://github.com/Arthur-Ficial/apfel"
-  url "https://github.com/Arthur-Ficial/apfel/releases/download/v0.9.6/apfel-0.9.6-arm64-macos.tar.gz"
-  sha256 "295b01e7b85933d70f6f2a298525989e2f7c8c8c67ddc04562be7c292468a0da"
+  url "https://github.com/Arthur-Ficial/apfel/releases/download/v0.9.7/apfel-0.9.7-arm64-macos.tar.gz"
+  sha256 "889a7c3ad6397035bc720653ff4558269b44f0d4981ed24b288a86a1c1d14d07"
   license "MIT"
+
+  depends_on :macos
+  depends_on macos: :tahoe
 
   def install
     bin.install "apfel"
@@ -18,22 +21,30 @@ class Apfel < Formula
 
   def caveats
     s = <<~EOS
-      apfel runs entirely on-device and requires Apple Intelligence to be enabled.
+      apfel requires:
+        - macOS 26 Tahoe or newer (enforced by this formula)
+        - Apple Silicon (M1 or later) - Tahoe is Apple Silicon only
+        - Apple Intelligence enabled in System Settings > Apple Intelligence & Siri
 
-      Check model availability with:
+      Verify everything is ready:
         apfel --model-info
+
+      If the model is unavailable, enable Apple Intelligence:
+        https://support.apple.com/en-us/121115
     EOS
     unless Hardware::CPU.arm?
       s += <<~EOS
 
-        WARNING: This binary was built for Apple Silicon (arm64).
-        It may not work on this architecture.
+        Note: Homebrew reports this process as non-arm64. If you are on a real
+        Apple Silicon Mac (M1+), apfel will still run - your brew install may
+        be running under Rosetta. See:
+        https://github.com/Arthur-Ficial/apfel/issues/45
       EOS
     end
     s
   end
 
   test do
-    assert_match "apfel v0.9.6", shell_output("#{bin}/apfel --version")
+    assert_match "apfel v0.9.7", shell_output("#{bin}/apfel --version")
   end
 end
