@@ -1,6 +1,6 @@
 cask "apfel-chat" do
-  version "1.1.1"
-  sha256 "45485a9a6339bea2d64b3d4fbed42bcecec217b90030dcae224ea3fc0fdc4b1c"
+  version "1.1.2"
+  sha256 "06348683c0b138a24b4d1a78342100bc75b17d5cdbb009deead8e55caed15716"
 
   url "https://github.com/Arthur-Ficial/apfel-chat/releases/download/v#{version}/apfel-chat-macos-arm64.zip"
   name "apfel-chat"
