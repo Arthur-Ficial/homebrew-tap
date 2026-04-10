@@ -1,29 +1,20 @@
-class ApfelClip < Formula
-  desc "AI-powered clipboard actions from the menu bar - powered by apfel"
-  homepage "https://github.com/Arthur-Ficial/apfel-clip"
-  url "https://github.com/Arthur-Ficial/apfel-clip/releases/download/v0.1.0/apfel-clip-0.1.0-arm64-macos.tar.gz"
-  sha256 "d97e92526d509feff6d4d09eca84eb245d91db1a1dce864f1bc67b465948e0ea"
-  license "MIT"
+cask "apfel-clip" do
+  version "0.3.1"
+  sha256 "c76e4141fc9b86ee5eddfbc7935468dc9000d3fccf2d2ec90da9e9555a688772"
 
-  depends_on "Arthur-Ficial/tap/apfel"
+  url "https://github.com/Arthur-Ficial/apfel-clip/releases/download/v#{version}/apfel-clip-macos-arm64.zip"
+  name "apfel-clip"
+  desc "AI-powered clipboard actions from the macOS menu bar"
+  homepage "https://apfel-clip.franzai.com"
 
-  def install
-    odie "apfel-clip requires Apple Silicon." unless Hardware::CPU.arm?
+  auto_updates false
+  depends_on arch: :arm64
 
-    bin.install "apfel-clip"
-  end
+  app "apfel-clip.app"
+  binary "apfel-clip.app/Contents/MacOS/apfel-clip"
 
-  def caveats
-    <<~EOS
-      apfel-clip is a menu bar app. After installing, run:
-        apfel-clip
-
-      It requires apfel to be installed (included as a dependency).
-      All AI runs on-device via Apple Intelligence.
-    EOS
-  end
-
-  test do
-    assert_predicate bin/"apfel-clip", :executable?
-  end
+  zap trash: [
+    "~/Library/Application Support/apfel-clip",
+    "~/Library/Preferences/com.arthurficial.apfel-clip.plist",
+  ]
 end
