@@ -1,6 +1,6 @@
 cask "apfelpad" do
-  version "0.2.3"
-  sha256 "3eaf7fc9eec15a8607297f7f24e4be006d5840ebb3ff39197bada355be0a3247"
+  version "0.3.0"
+  sha256 "01ba310021ff07924efac25d04b91628c9f431b814f1b8639cd43386c9797b10"
 
   url "https://github.com/Arthur-Ficial/apfelpad/releases/download/v#{version}/apfelpad-macos-arm64.zip"
   name "apfelpad"
