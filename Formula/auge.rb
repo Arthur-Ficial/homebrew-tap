@@ -1,8 +1,8 @@
 class Auge < Formula
   desc "On-device Apple Vision CLI for OCR, classification, barcode, and face detection"
   homepage "https://github.com/Arthur-Ficial/auge"
-  url "https://github.com/Arthur-Ficial/auge/releases/download/v0.0.6/auge-0.0.6-arm64-macos.tar.gz"
-  sha256 "f6fa173fe0ecfa4549dcba46855ecd3ee30780257f848313c92cbc49a19034c7"
+  url "https://github.com/Arthur-Ficial/auge/releases/download/v0.0.7/auge-0.0.7-arm64-macos.tar.gz"
+  sha256 "97a860534c83d00836a199d0c2fb2c6b5e37a93115909eab4fcc61c143c4dd54"
   license "MIT"
 
   def install
