@@ -5,6 +5,7 @@ class Apfel < Formula
   sha256 "068f55de1220e60919a32e3027542c48612902a9a721153eec9c44a96218f685"
   license "MIT"
 
+  depends_on arch: :arm64
   depends_on :macos
   depends_on macos: :tahoe
 
