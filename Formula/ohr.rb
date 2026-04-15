@@ -1,8 +1,8 @@
 class Ohr < Formula
   desc "On-device speech-to-text CLI and OpenAI-compatible transcription server"
   homepage "https://github.com/Arthur-Ficial/ohr"
-  url "https://github.com/Arthur-Ficial/ohr/releases/download/v0.1.3/ohr-0.1.3-arm64-macos.tar.gz"
-  sha256 "8e6811b891192e7399dbeeeb97921f3e26cca4fc56a2ea8f12deafe5b560787a"
+  url "https://github.com/Arthur-Ficial/ohr/releases/download/v0.1.6/ohr-0.1.6-arm64-macos.tar.gz"
+  sha256 "5e9d06cb986dcf2d7f9c6ebc383bbe862a9175546ee72c8974bb4c82f5f4b99b"
   license "MIT"
 
   def install
