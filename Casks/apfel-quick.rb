@@ -1,6 +1,6 @@
 cask "apfel-quick" do
-  version "1.0.2"
-  sha256 "81b0e578402b007104595912e8125a548f6120f771696a701ce6e3c0b7790ba2"
+  version "1.0.3"
+  sha256 "cb24f1d075c47ed85a848da604a864056aa36bbc82cc543ad7ba550c6709d1c7"
 
   url "https://github.com/Arthur-Ficial/apfel-quick/releases/download/v#{version}/apfel-quick-macos-arm64.zip"
   name "apfel-quick"
