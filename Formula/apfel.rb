@@ -1,8 +1,8 @@
 class Apfel < Formula
   desc "On-device Apple FoundationModels CLI and OpenAI-compatible server"
   homepage "https://github.com/Arthur-Ficial/apfel"
-  url "https://github.com/Arthur-Ficial/apfel/releases/download/v1.0.4/apfel-1.0.4-arm64-macos.tar.gz"
-  sha256 "0f7a4bdeb52d95c38b4f69a6ba966bf4e37c3a37c324405bfcf4904836816d8b"
+  url "https://github.com/Arthur-Ficial/apfel/releases/download/v1.0.5/apfel-1.0.5-arm64-macos.tar.gz"
+  sha256 "7ad10e6246153e6d3c4911379ee29c0e2812ee50a451480c69c3a5fec2efff50"
   license "MIT"
 
   depends_on arch: :arm64
@@ -11,6 +11,7 @@ class Apfel < Formula
 
   def install
     bin.install "apfel"
+    man1.install "apfel.1"
   end
 
   service do
@@ -47,5 +48,6 @@ class Apfel < Formula
 
   test do
     assert_match "apfel v#{version}", shell_output("#{bin}/apfel --version")
+    assert_predicate man1/"apfel.1", :exist?
   end
 end
