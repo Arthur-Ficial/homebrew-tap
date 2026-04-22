@@ -1,8 +1,8 @@
 class ApfelRun < Formula
-  desc "MCP registry wrapper for apfel - persistent enable/disable semantics"
+  desc "Wrangler-style config for apfel - every apfel setting in one TOML file"
   homepage "https://github.com/Arthur-Ficial/apfel-run"
-  url "https://github.com/Arthur-Ficial/apfel-run/releases/download/v0.1.0/apfel-run-0.1.0-arm64-macos.tar.gz"
-  sha256 "5ab1389e7fb8a372f9b7ff3d5e0e4ef9b72674cc45672c935064fa5460272a8b"
+  url "https://github.com/Arthur-Ficial/apfel-run/releases/download/v0.2.0/apfel-run-0.2.0-arm64-macos.tar.gz"
+  sha256 "597298eb18d4d23dcf8d34911247fe863f277515a11199424b07fd56243a31e1"
   license "MIT"
 
   depends_on arch: :arm64
@@ -15,40 +15,32 @@ class ApfelRun < Formula
 
   def caveats
     <<~EOS
-      apfel-run wraps `apfel` with a persistent MCP registry. Install apfel
-      first if you have not already:
+      apfel-run is a configuration wrapper for apfel. Install apfel too if
+      you haven't already:
 
         brew install Arthur-Ficial/tap/apfel
 
-      Then create your MCP registry:
+      Then generate a starter config:
 
-        mkdir -p ~/.config/apfel
-        $EDITOR ~/.config/apfel/mcps.conf
+        apfel-run config init
+        apfel-run config edit     # opens $EDITOR
 
-      Example config:
-
-        # one MCP per line, prefix - to disable, # for comments
-        /path/to/calculator.py
-        /path/to/web.py
-        -/path/to/filesystem.py    # disabled
-
-      Then use apfel-run exactly like apfel:
+      And use apfel-run anywhere you'd use apfel:
 
         apfel-run "what is 42 * 137?"
-        apfel-run --list
         apfel-run --serve --port 11434
+        apfel-run -p research "summarise this"
 
       Tip: `alias apfel=apfel-run` in your shell config gives every apfel
-      call the registry automatically. See:
+      call your full configuration automatically. Full docs:
+
         https://github.com/Arthur-Ficial/apfel-run
     EOS
   end
 
   test do
     assert_match "apfel-run #{version}", shell_output("#{bin}/apfel-run --version")
-    assert_match "--list", shell_output("#{bin}/apfel-run --help")
-    # Verify the config-path flag resolves to a reasonable default
-    output = shell_output("#{bin}/apfel-run --config-path")
-    assert_match %r{/apfel/mcps\.conf}, output
+    assert_match "config show", shell_output("#{bin}/apfel-run --help")
+    assert_match "valid", shell_output("APFEL_RUN_CONFIG=/dev/null #{bin}/apfel-run config validate")
   end
 end
