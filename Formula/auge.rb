@@ -1,28 +1,28 @@
 class Auge < Formula
-  desc "On-device Apple Vision CLI for OCR, classification, barcode, and face detection"
+  desc "On-device Apple Vision CLI for OCR, classification, barcodes, and faces"
   homepage "https://github.com/Arthur-Ficial/auge"
-  url "https://github.com/Arthur-Ficial/auge/releases/download/v0.0.7/auge-0.0.7-arm64-macos.tar.gz"
-  sha256 "97a860534c83d00836a199d0c2fb2c6b5e37a93115909eab4fcc61c143c4dd54"
+  url "https://github.com/Arthur-Ficial/auge/releases/download/v1.1.0/auge-1.1.0-arm64-macos.tar.gz"
+  sha256 "65c61e5608c925db7a5609a8312b0f5ae7931fcfb74b45fab550bd08773bc68a"
   license "MIT"
 
   def install
     odie "auge requires Apple Silicon." unless Hardware::CPU.arm?
-
     bin.install "auge"
   end
 
   def caveats
-    <<~EOS
+    <<~CAVEAT
       auge runs entirely on-device using Apple's Vision framework.
       No API keys or network access required.
 
-      Verify with:
+      Quick start:
         auge --version
-        auge --ocr /path/to/image.png
-    EOS
+        auge --all /path/to/image.png
+        auge --ocr scan.pdf
+    CAVEAT
   end
 
   test do
-    assert_match "auge v0.0.6", shell_output("#{bin}/auge --version")
+    assert_match "auge v1.1.0", shell_output("#{bin}/auge --version")
   end
 end
