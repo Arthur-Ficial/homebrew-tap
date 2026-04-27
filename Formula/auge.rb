@@ -1,8 +1,8 @@
 class Auge < Formula
   desc "On-device Apple Vision CLI for OCR, classification, barcode, and face detection"
   homepage "https://github.com/Arthur-Ficial/auge"
-  url "https://github.com/Arthur-Ficial/auge/releases/download/v1.3.0/auge-1.3.0-arm64-macos.tar.gz"
-  sha256 "18f124624a5b412883454f3753fd5895b08c656b3a78281c989ae6528ff38d0a"
+  url "https://github.com/Arthur-Ficial/auge/releases/download/v1.4.1/auge-1.4.1-arm64-macos.tar.gz"
+  sha256 "1339a6e945ceaf75279ce5e68fc6506a3e31627f1537687e228ee3fd2fba42e8"
   license "MIT"
 
   def install
@@ -23,6 +23,6 @@ class Auge < Formula
   end
 
   test do
-    assert_match "auge v1.3.0", shell_output("#{bin}/auge --version")
+    assert_match "auge v1.4.1", shell_output("#{bin}/auge --version")
   end
 end
