@@ -1,8 +1,8 @@
 class Apfel < Formula
   desc "On-device Apple FoundationModels CLI and OpenAI-compatible server"
   homepage "https://github.com/Arthur-Ficial/apfel"
-  url "https://github.com/Arthur-Ficial/apfel/releases/download/v1.3.4/apfel-1.3.4-arm64-macos.tar.gz"
-  sha256 "aefed20e5e579395f916e81b59d9d7a43a29994a83f1b5231e4f07f796c53594"
+  url "https://github.com/Arthur-Ficial/apfel/releases/download/v1.3.5/apfel-1.3.5-arm64-macos.tar.gz"
+  sha256 "e37e64cc919ac49ea718d4341a8b2908d42bbcc953aae324a1aa4f016cb6213e"
   license "MIT"
 
   depends_on arch: :arm64
