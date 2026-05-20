@@ -1,8 +1,8 @@
 class Apfel < Formula
   desc "On-device Apple FoundationModels CLI and OpenAI-compatible server"
   homepage "https://github.com/Arthur-Ficial/apfel"
-  url "https://github.com/Arthur-Ficial/apfel/releases/download/v1.3.6/apfel-1.3.6-arm64-macos.tar.gz"
-  sha256 "3cc42973f1818f6bd5d9608bd195a7c3dbbc0b27d89c84c46431f4447dba9bc2"
+  url "https://github.com/Arthur-Ficial/apfel/releases/download/v1.3.7/apfel-1.3.7-arm64-macos.tar.gz"
+  sha256 "250aacf5e6f7699074757986c2ca71b52f2bf297d6094c829da248b10cec421a"
   license "MIT"
 
   depends_on arch: :arm64
@@ -12,6 +12,18 @@ class Apfel < Formula
   def install
     bin.install "apfel"
     man1.install "apfel.1"
+
+    # Ship the demo/ pipe-friendly examples (cmd, explain, gitsum, mac-narrator,
+    # naming, oneliner, port, wtd) as apfel-<name> companion commands. The
+    # apfel- prefix avoids global PATH collisions ('port' would shadow MacPorts).
+    if File.directory?("demo")
+      pkgshare.install "demo"
+      %w[cmd explain gitsum mac-narrator naming oneliner port wtd].each do |d|
+        target = pkgshare/"demo/#{d}"
+        next unless target.exist?
+        bin.install_symlink target => "apfel-#{d}"
+      end
+    end
   end
 
   service do
@@ -33,6 +45,16 @@ class Apfel < Formula
 
       If the model is unavailable, enable Apple Intelligence:
         https://support.apple.com/en-us/121115
+
+      Companion demo commands (pipe-friendly bash scripts) installed:
+        apfel-cmd           natural language -> shell command
+        apfel-oneliner      complex awk/sed/find pipe chains
+        apfel-explain       explain a command, error, or code snippet
+        apfel-wtd           "what's this directory?" project orientation
+        apfel-naming        suggest names for functions/variables/classes
+        apfel-port          identify the process on a port
+        apfel-gitsum        plain-English summary of recent git activity
+        apfel-mac-narrator  dry-British-humor system narration
     EOS
     unless Hardware::CPU.arm?
       s += <<~EOS
@@ -49,5 +71,7 @@ class Apfel < Formula
   test do
     assert_match "apfel v#{version}", shell_output("#{bin}/apfel --version")
     assert_predicate man1/"apfel.1", :exist?
+    assert_predicate bin/"apfel-cmd", :exist?
+    assert_predicate bin/"apfel-cmd", :symlink?
   end
 end
