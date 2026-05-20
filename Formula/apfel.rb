@@ -21,6 +21,7 @@ class Apfel < Formula
       %w[cmd explain gitsum mac-narrator naming oneliner port wtd].each do |d|
         target = pkgshare/"demo/#{d}"
         next unless target.exist?
+
         bin.install_symlink target => "apfel-#{d}"
       end
     end
@@ -70,8 +71,8 @@ class Apfel < Formula
 
   test do
     assert_match "apfel v#{version}", shell_output("#{bin}/apfel --version")
-    assert_predicate man1/"apfel.1", :exist?
-    assert_predicate bin/"apfel-cmd", :exist?
+    assert_path_exists man1/"apfel.1"
+    assert_path_exists bin/"apfel-cmd"
     assert_predicate bin/"apfel-cmd", :symlink?
   end
 end
