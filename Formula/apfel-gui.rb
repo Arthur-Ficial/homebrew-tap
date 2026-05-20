@@ -1,8 +1,8 @@
 class ApfelGui < Formula
   desc "Native macOS debug GUI for apfel - Apple Intelligence debugging tool"
   homepage "https://github.com/Arthur-Ficial/apfel-gui"
-  url "https://github.com/Arthur-Ficial/apfel-gui/releases/download/v1.1.0/apfel-gui-1.1.0-arm64-macos.tar.gz"
-  sha256 "3fb7729df6263dc9eb990dc0cf1b8ee841226437965076de76542f4adc283bb4"
+  url "https://github.com/Arthur-Ficial/apfel-gui/releases/download/v1.1.1/apfel-gui-1.1.1-arm64-macos.tar.gz"
+  sha256 "6719be0d0a5a3a4f1f85f84815b753a7534c62e054498a5b1612d367d646f1a0"
   license "MIT"
 
   depends_on "arthur-ficial/tap/apfel"
