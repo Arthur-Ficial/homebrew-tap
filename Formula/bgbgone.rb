@@ -1,8 +1,8 @@
 class Bgbgone < Formula
   desc "On-device Apple Vision background remover for macOS"
   homepage "https://github.com/Arthur-Ficial/bgbgone"
-  url "https://github.com/Arthur-Ficial/bgbgone/releases/download/v0.1.16/bgbgone-0.1.16-arm64-macos.tar.gz"
-  sha256 "ec02805cde4630a18a953848216d91339ecf8553bf68af5582db7d1e95671af6"
+  url "https://github.com/Arthur-Ficial/bgbgone/releases/download/v0.1.20/bgbgone-0.1.20-arm64-macos.tar.gz"
+  sha256 "e56f5c417237761aabc300ec9e11692aa887d8ff6cc2738a5f4c97e50bd3efc2"
   license "MIT"
 
   def install
