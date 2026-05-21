@@ -1,8 +1,8 @@
 class Bgbgone < Formula
   desc "Ultimate UNIX-style background remover for macOS — on-device Apple Vision, 100% scriptable"
   homepage "https://github.com/Arthur-Ficial/bgbgone"
-  url "https://github.com/Arthur-Ficial/bgbgone/releases/download/v0.1.8/bgbgone-0.1.8-arm64-macos.tar.gz"
-  sha256 "0bc59fccf2433d244d073ce3ff91f0e281cebe02cf4e422806f8b6abb163e36b"
+  url "https://github.com/Arthur-Ficial/bgbgone/releases/download/v0.1.11/bgbgone-0.1.11-arm64-macos.tar.gz"
+  sha256 "7d2d2a7abc958ec6be97191d0cf15d6ff48f7c517a8e99a3f3d2708542bedd8a"
   license "MIT"
 
   def install
@@ -22,9 +22,8 @@ class Bgbgone < Formula
         bgbgone --check
         bgbgone /path/to/photo.jpg -o cutout.png
 
-      For a generated background, pre-generate the image in any tool (Apple's
-      standalone Image Playground app, etc.) and compose with --bg image:<path>.
-      --bg gen: was removed in v0.1.2 — see the README for the full reasoning.
+      To use a generated or hand-painted background, save it as a PNG / JPG
+      and compose with --bg image:<path>.
     EOS
   end
 
