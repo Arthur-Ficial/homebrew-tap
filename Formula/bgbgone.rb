@@ -1,8 +1,8 @@
 class Bgbgone < Formula
   desc "On-device Apple Vision background remover for macOS"
   homepage "https://github.com/Arthur-Ficial/bgbgone"
-  url "https://github.com/Arthur-Ficial/bgbgone/releases/download/v1.1.5/bgbgone-1.1.5-arm64-macos.tar.gz"
-  sha256 "53c00875fff21d92109ecea63299d3dc54f767b951e7e30840b71fbda99fcabb"
+  url "https://github.com/Arthur-Ficial/bgbgone/releases/download/v1.1.13/bgbgone-1.1.13-arm64-macos.tar.gz"
+  sha256 "3fd7c379bb382aae34ad8a663146889d8ecba5cb680cbea050cf407eafd0ed23"
   license "MIT"
 
   def install
@@ -13,8 +13,8 @@ class Bgbgone < Formula
 
   def caveats
     <<~EOS
-      bgbgone runs entirely on-device using Apple's Vision framework.
-      No API keys, no network, no accounts. No GUI side-effects — every
+      bgbgone runs entirely on-device using Apples Vision framework.
+      No API keys, no network, no accounts. No GUI side-effects - every
       invocation is silent and scriptable.
 
       Verify with:
