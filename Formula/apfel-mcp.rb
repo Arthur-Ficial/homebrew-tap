@@ -1,10 +1,10 @@
 class ApfelMcp < Formula
   include Language::Python::Virtualenv
 
-  desc "Token-budget MCP servers for apfel: url-fetch + ddg-search + compound"
+  desc "Token-budget MCP servers for apfel: url-fetch + ddg-search + compound + fs"
   homepage "https://github.com/Arthur-Ficial/apfel-mcp"
-  url "https://github.com/Arthur-Ficial/apfel-mcp/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "5d1498667c97161bc6a0a0199f56b9d876dcf67125f05d3ed127ca2214c5c9e9"
+  url "https://github.com/Arthur-Ficial/apfel-mcp/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "887ccb94970f105590a8e4794cff26ee23045c58337f385ccf3ebbcf595a3dd4"
   license "MIT"
 
   depends_on "libxml2" # for lxml
@@ -97,10 +97,11 @@ class ApfelMcp < Formula
 
   def caveats
     <<~EOS
-      apfel-mcp installs three MCP (Model Context Protocol) servers:
+      apfel-mcp installs four MCP (Model Context Protocol) servers:
         - apfel-mcp-url-fetch
         - apfel-mcp-ddg-search
         - apfel-mcp-search-and-fetch
+        - apfel-mcp-fs (read-only local file reader; set APFEL_MCP_FS_ROOTS)
 
       Use them with apfel in chat mode. The flagship compound tool:
 
@@ -119,7 +120,7 @@ class ApfelMcp < Formula
   test do
     # Each binary must at least respond to `initialize`.
     initialize_request = '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' + "\n"
-    %w[apfel-mcp-url-fetch apfel-mcp-ddg-search apfel-mcp-search-and-fetch].each do |binary|
+    %w[apfel-mcp-url-fetch apfel-mcp-ddg-search apfel-mcp-search-and-fetch apfel-mcp-fs].each do |binary|
       output = pipe_output("#{bin}/#{binary}", initialize_request, 0)
       assert_match "\"protocolVersion\":\"2025-06-18\"", output
       assert_match "\"name\":\"#{binary}\"", output
