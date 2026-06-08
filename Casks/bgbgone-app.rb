@@ -1,6 +1,6 @@
 cask "bgbgone-app" do
-  version "0.3.3"
-  sha256 "06dab1338904fa32245594f0d0022270c569e392754241f6b286fe82d23c64c6"
+  version "0.3.4"
+  sha256 "d47bd0998d26b8c039614c71bea1282d6763abb3b6e36af4969cd1231feee52e"
 
   url "https://github.com/Arthur-Ficial/bgbgone-app/releases/download/v#{version}/bgbgone-app-v#{version}-macos-arm64.zip"
   name "bgbgone"
