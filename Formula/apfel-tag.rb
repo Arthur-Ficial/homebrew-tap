@@ -6,7 +6,17 @@ class ApfelTag < Formula
   license "MIT"
 
   depends_on arch: :arm64
-  depends_on macos: :tahoe
+  # macOS-only hard block: this tap installs a prebuilt macOS binary with no
+  # xcode build-dep, so a bare top-level `depends_on :macos` is the only thing
+  # that hard-blocks Linux - a versioned `depends_on macos: :tahoe` alone is
+  # auto-satisfied on Linux ("macOS >= 26 (or Linux)"), and arm64 Linux exists.
+  # The version floor lives inside `on_macos` because combining both forms
+  # top-level is deprecated (prints a runtime warning on every formula load).
+  # Same pattern and rationale as Formula/apfel.rb.
+  depends_on :macos
+  on_macos do
+    depends_on macos: :tahoe
+  end
 
   def install
     bin.install "apfel-tag"
