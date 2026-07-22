@@ -6,8 +6,17 @@ class ApfelRun < Formula
   license "MIT"
 
   depends_on arch: :arm64
+  # macOS-only hard block: this tap installs a prebuilt macOS binary with no
+  # xcode build-dep, so a bare top-level `depends_on :macos` is the only thing
+  # that hard-blocks Linux - a versioned `depends_on macos: :ventura` alone is
+  # auto-satisfied on Linux ("macOS >= 13 (or Linux)"), and arm64 Linux exists.
+  # The version floor lives inside `on_macos` because combining both forms
+  # top-level is deprecated (prints a runtime warning on every formula load).
+  # Same pattern and rationale as Formula/apfel.rb.
   depends_on :macos
-  depends_on macos: :ventura
+  on_macos do
+    depends_on macos: :ventura
+  end
 
   def install
     bin.install "apfel-run"
