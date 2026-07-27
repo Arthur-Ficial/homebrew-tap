@@ -1,6 +1,6 @@
 cask "apfel-clip" do
-  version "0.5.0"
-  sha256 "a28c4b9f6929cdb4aaf40c13aca0837679f32c996c5e796c4af8e291f0deb73b"
+  version "0.6.0"
+  sha256 "3b5830299a5a71a39366a29b3f704cef7516b2e179115b02486ecdf783298ba4"
 
   url "https://github.com/Arthur-Ficial/apfel-clip/releases/download/v#{version}/apfel-clip-macos-arm64.zip"
   name "apfel-clip"
