@@ -1,8 +1,8 @@
 class ApfelRun < Formula
   desc "Wrangler-style config for apfel - every apfel setting in one TOML file"
   homepage "https://github.com/Arthur-Ficial/apfel-run"
-  url "https://github.com/Arthur-Ficial/apfel-run/releases/download/v0.2.0/apfel-run-0.2.0-arm64-macos.tar.gz"
-  sha256 "597298eb18d4d23dcf8d34911247fe863f277515a11199424b07fd56243a31e1"
+  url "https://github.com/Arthur-Ficial/apfel-run/releases/download/v0.3.0/apfel-run-0.3.0-arm64-macos.tar.gz"
+  sha256 "ab3d808f13e2126fdd914846605e429496cb5e3ca13e787cec25b01f20177ef9"
   license "MIT"
 
   depends_on arch: :arm64
