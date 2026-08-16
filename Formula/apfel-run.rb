@@ -6,8 +6,13 @@ class ApfelRun < Formula
   license "MIT"
 
   depends_on arch: :arm64
+  # Bare top-level `depends_on :macos` hard-blocks Linux (a versioned
+  # `depends_on macos:` is auto-satisfied on Linux); the version floor lives
+  # inside `on_macos` to avoid Homebrew 6's deprecation of combining them.
   depends_on :macos
-  depends_on macos: :ventura
+  on_macos do
+    depends_on macos: :ventura
+  end
 
   def install
     bin.install "apfel-run"
