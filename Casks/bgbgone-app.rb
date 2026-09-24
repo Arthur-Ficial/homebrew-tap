@@ -7,7 +7,7 @@ cask "bgbgone-app" do
   desc "macOS GUI for the bgbgone background removal CLI (Apple Vision, on-device, batchable)"
   homepage "https://github.com/Arthur-Ficial/bgbgone-app"
 
-  depends_on macos: ">= :tahoe"
+  depends_on macos: :tahoe
   depends_on arch: :arm64
 
   app "bgbgone-app.app"
