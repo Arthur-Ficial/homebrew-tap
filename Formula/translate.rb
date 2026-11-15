@@ -1,8 +1,8 @@
 class Translate < Formula
   desc "On-device Apple Translation CLI plus drop-in HTTP server for DeepL, LibreTranslate, and Google v2"
   homepage "https://github.com/Arthur-Ficial/translate"
-  url "https://github.com/Arthur-Ficial/translate/releases/download/v0.1.1/translate-0.1.1-arm64-macos.tar.gz"
-  sha256 "1b2060ba1d39d65d4daf62230b4665c814349083a74a309e57df58c0467b6c5d"
+  url "https://github.com/Arthur-Ficial/translate/releases/download/v0.2.0/translate-0.2.0-arm64-macos.tar.gz"
+  sha256 "ffa54f3ba39186765102d208762e6915ae4306874d19ef0e33948aee50282f39"
   license "MIT"
 
   def install
@@ -30,6 +30,6 @@ class Translate < Formula
   end
 
   test do
-    assert_match "0.1.1", shell_output("#{bin}/translate --version")
+    assert_match "0.2.0", shell_output("#{bin}/translate --version")
   end
 end
