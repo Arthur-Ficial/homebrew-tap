@@ -3,8 +3,8 @@ class ApfelMcp < Formula
 
   desc "Token-budget MCP servers for apfel: url-fetch + ddg-search + compound + fs"
   homepage "https://github.com/Arthur-Ficial/apfel-mcp"
-  url "https://github.com/Arthur-Ficial/apfel-mcp/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "887ccb94970f105590a8e4794cff26ee23045c58337f385ccf3ebbcf595a3dd4"
+  url "https://github.com/Arthur-Ficial/apfel-mcp/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "c1104e27338472b2213f02abf754e32456329e6fda23849d5509ae8af80a6dee"
   license "MIT"
 
   depends_on "libxml2" # for lxml
